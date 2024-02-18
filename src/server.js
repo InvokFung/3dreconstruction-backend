@@ -142,4 +142,5 @@ router.get('/test', (req, res) => {
 // app.listen(3000, () => console.log('Server started on port 3000'));
 app.use('/.netlify/functions/server', router);  // path must route to lambda
 
+module.exports = app;
 module.exports.handler = serverless(app);
