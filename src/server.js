@@ -10,6 +10,9 @@ const app = express();
 
 app.use(cors());
 
+app.use(express.static(path.join(__dirname, 'src')));
+app.use('/tmpImages', express.static(path.join(__dirname, 'tmpImages')));
+
 const router = express.Router();
 
 // Make sure tmpImages/ folder exist
@@ -21,7 +24,7 @@ if (!fs.existsSync(dir)) {
 // Request storage
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        const dir = './tmpImages/' + req.params.userId + "/rgb";
+        const dir = path.join(__dirname, 'tmpImages', req.params.userId, "rgb");
         fs.mkdirSync(dir, { recursive: true });
         cb(null, dir);
     },
