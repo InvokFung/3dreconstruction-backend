@@ -113,6 +113,18 @@ router.post('/process_image/:userId', upload.array('images'), (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    res.json({
+        hello: 'hi!'
+    });
+})
+
+router.get('/test', (req, res) => {
+    res.json({
+        hello: 'hi2!'
+    });
+})
+
 // function authenticateToken(req, res, next) {
 //     const authHeader = req.headers['authorization'];
 //     const token = authHeader && authHeader.split(' ')[1];
