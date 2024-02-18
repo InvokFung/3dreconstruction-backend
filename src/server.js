@@ -13,7 +13,7 @@ app.use(cors());
 const router = express.Router();
 
 // Make sure tmpImages/ folder exist
-const dir = path.join(__dirname, 'tmpImages');
+const dir = path.join(__dirname, 'src/tmpImages');
 if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
 }
